@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <!-- Basic -->
+    <meta charset="UTF-8">
+
+    <title>{{title}}</title>
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <!-- Vendor CSS -->
+    <script src="/views/porto_assets/vendor/jquery/jquery.js"></script>
+    <link rel="stylesheet" href="/views/porto_assets/vendor/bootstrap/css/bootstrap.css" />
+
+    <link rel="stylesheet" href="/views/porto_assets/vendor/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/views/porto_assets/vendor/magnific-popup/magnific-popup.css" />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="/views/porto_assets/stylesheets/theme.css" />
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="/views/porto_assets/stylesheets/skins/default.css" />
+
+
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="/views/porto_assets/stylesheets/theme-custom.css">
+
+    <link rel="stylesheet" href="/views/css/appStyle.css" />
+    <!-- Page Specific CSS -->
+    {{{_sections.style}}}
+
+    <!-- Head Libs -->
+    <script src="/views/porto_assets/vendor/modernizr/modernizr.js"></script>
+    <script src="/views/js/config.js"></script>
+    <script type="text/javascript" src="/views/js/RESTServices.js"></script>
+
+</head>
+
+<body>
+
+        {{#if user}}
+        <section class="body">
+            <!-- start: header -->
+            <div id="header">
+                <header class="header">
+                    <div class="logo-container">
+                        <a href="../" class="logo">
+                            <img src="/views/assets/logo.png" height="35" alt="Porto Admin" />
+                        </a>
+                        <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+                            <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+                        </div>
+                    </div>
+
+                    <!-- start: search & user box -->
+                    <div class="header-right">
+
+                        <div class="search nav-form">
+                            <div class="input-group input-search">
+                                <input type="text" class="form-control product-search-input" name="q" id="q" placeholder="Search...">
+                                <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                            </div>
+                        </div>
+
+                        <div id="userbox" class="userbox">
+                            <a data-toggle="dropdown">
+                                <div class="profile-image">
+
+                                </div>
+                            </a>
+
+                            <div class="dropdown-menu">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a role="menuitem" tabindex="-1" href="/profile"> My Profile</a>
+                                    </li>
+                                    <li>
+                                        <a role="menuitem" tabindex="-1" onclick="logout()"> Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </div>
+            <!-- end: header -->
+
+            <div class="inner-wrapper">
+                <!-- start: sidebar -->
+                <div id="sideMenu">
+                    <aside id="sidebar-left" class="sidebar-left">
+                        <div class="nano">
+                            <div class="nano-content">
+                                <nav id="menu" class="nav-main" role="navigation">
+                                    <ul class="nav nav-main">
+                                        <li {{#if dashboard}}class="nav-active"{{/if}}>
+                                            <a href="/">
+                                                <span class="icon dashboard-icon"></span>
+                                                <span>Dashboard</span>
+                                            </a>
+                                        </li>
+                                        {{#if roles.supplier}}
+                                        <li {{#if qrScanner}}class="nav-active"{{/if}}>
+                                            <a href="/QR-scanner">
+                                                <span class="icon nav-scan-icon"></span>
+                                                <span>QR Scanner</span>
+                                            </a>
+                                        </li>
+                                        {{/if}}
+                                        {{#if roles.admin}}
+                                        <li {{#if category}}class="nav-active"{{/if}}>
+                                            <a href="/category">
+                                                <span class="icon list-icon"></span>
+                                                <span>Category</span>
+                                            </a>
+                                        </li>
+                                        {{/if}}
+                                        {{#if roles.admin}}
+                                        <li {{#if users}}class="nav-active"{{/if}}>
+                                            <a href="/users">
+                                                <span class="icon list-icon"></span>
+                                                <span>Users</span>
+                                            </a>
+                                        </li>
+                                        {{/if}}
+                                        {{#unless roles.admin}}
+                                        <li {{#if gallery}}class="nav-active"{{/if}}>
+                                            <a href="/gallery">
+                                                <span class="icon gallery-icon"></span>
+                                                <span>Gallery</span>
+                                            </a>
+                                        </li>
+                                        {{/unless}}
+                                        {{#unless roles.admin}}
+                                        <li {{#if imageList}}class="nav-active"{{/if}}>
+                                            <a href="/image-list">
+                                                <span class="icon list-icon"></span>
+                                                <span>Image List</span>
+                                            </a>
+                                        </li>
+                                        {{/unless}}
+                                    </ul>
+                                </nav>
+                            </div>
+
+                        </div>
+                    </aside>
+
+                </div>
+                <!-- end: sidebar -->
+                {{{body}}}
+            </div>
+        </section>
+        {{else}}
+            {{{body}}}
+        {{/if}}
+
+    <!-- Vendor -->
+
+    <script src="/views/porto_assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+    <script src="/views/porto_assets/vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="/views/porto_assets/vendor/nanoscroller/nanoscroller.js"></script>
+    <script src="/views/porto_assets/vendor/magnific-popup/magnific-popup.js"></script>
+    <script src="/views/porto_assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+    <!-- Theme Base, Components and Settings -->
+    <script src="/views/porto_assets/javascripts/theme.js"></script>
+
+    <!-- Theme Custom -->
+    <script src="/views/porto_assets/javascripts/theme.custom.js"></script>
+
+    <!-- Theme Initialization Files -->
+    <script src="/views/porto_assets/javascripts/theme.init.js"></script>
+
+    <!-- Script common to all pages -->
+    <script src="/views/js/application.js"></script>
+
+    <!-- Load Page Specific Scripts -->
+    {{{_sections.script}}}
+</body>
+
+</html>

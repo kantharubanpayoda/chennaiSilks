@@ -1,0 +1,108 @@
+{{#section 'style'}}
+    <link rel="stylesheet" href="/views/porto_assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+{{/section}}
+<section role="main" class="content-body dashboard-wrap">
+                <div class="loading-icon"></div>                
+                <h3 class="page-title">Dashboard</h3>
+                <p class="error-msg"></p>
+                <div class='status-wrap'>                    
+                    {{!-- <div class="row month-dropdown">
+                        <div class="col-md-12"> --}}
+                            {{!-- <div class="btn-group">
+                                <button type="button" class="mb-xs mt-xs mr-xs btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="selected-month"></span><span class="caret"></span></button>
+                                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                    
+                                </ul>
+                            </div> --}}
+                            <div class='datepicker-wrap clearfix'>
+                                <div class="input-group date to-selector" data-provide="datepicker" data-date-autoclose="true" data-date-end-date="0d">
+                                    <input type="text" class="form-control">
+                                    <div class="input-group-addon">
+                                        <span class="calendar-icon"></span>
+                                    </div>
+                                </div>
+                                <div class="input-group date from-selector" data-provide="datepicker" data-date-autoclose="true" data-date-end-date="0d">
+                                    <input type="text" class="form-control">
+                                    <div class="input-group-addon">
+                                        <span class="calendar-icon"></span>
+                                    </div>
+                                </div>                                
+                            </div>
+                        {{!-- </div>
+                    </div> --}}
+                    <div class="row status-card-wrap">
+                        <div class="col-md-3">
+                            <div class='status-card total-count dashboard-widget'>
+                                <h4>Total Photos Taken</h4>
+                                <p id="total-photos">-</p>
+                            </div>                                                                 
+                        </div>
+                        <div class="col-md-3"> 
+                            <div class='status-card rejected-count dashboard-widget'>                           
+                                <h4>Rejected</h4>
+                                <p id="rejected">-</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">    
+                            <div class='status-card to-be-approved-count dashboard-widget'>                           
+                                <h4>Yet to Approve</h4>
+                                <p id="to-be-approved">-</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class='status-card approved-count dashboard-widget'> 
+                                <h4>Approved</h4>                                                
+                                <p id="digitized">-</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">  
+                        <div class="chart-wrap dashboard-widget">
+                            <div class="clearfix">
+                                <h3 class="page-title">Performance Chart</h3>
+                                <div class="legend-wrap"></div>   
+                            </div>               
+                            <div class="chart chart-md" id="flotDashBasic"></div>   
+                        </div>                               
+                    </div>
+                    <div class="col-md-4">                        
+                        <div class="recent-list-wrap dashboard-widget">
+                            {{#if roles.supplier}}<h2 class="panel-title">Recently Rejected <span class="recent-prod-count"></span></h2>{{/if}}
+                            {{#if roles.designer}}<h2 class="panel-title">Waiting for approval - Over Due <span class="recent-prod-count"></span></h2>{{/if}}
+                            {{#if roles.reviewer}}<h2 class="panel-title">Waiting for approval <span class="recent-prod-count"></span></h2>{{/if}}
+                            {{#if roles.admin}}<h2 class="panel-title">User Counts <span class="recent-prod-count"></span></h2>{{/if}}
+                            <div class="content">
+                                <p class="error-msg"></p>
+                                <div class="loading-icon"></div>
+                                <div class="no-data-msg">No Data Found</div>
+                                <ul class="recently-rejected-list">                                											
+                                </ul>
+                                {{#if roles.admin}}
+                                    <div class="reviewer-stat">
+                                        <h1>-</h1>
+                                         <p>Reviewers</p>
+                                    </div>
+                                    <div class="designer-stat">
+                                        <h1>-</h1>
+                                        <p>Designers</p>
+                                    </div>
+                                {{/if}}
+                                <p class="filter-link">View All</p>									
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: page -->
+            </section>            
+            {{#section 'script'}}            
+            <script src="/views/porto_assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+            <script src="/views/porto_assets/vendor/flot/jquery.flot.js"></script>
+            <script src="/views/porto_assets/vendor/flot-tooltip/jquery.flot.tooltip.js"></script>
+            <script src="/views/porto_assets/vendor/flot/jquery.flot.pie.js"></script>
+            <script src="/views/porto_assets/vendor/flot/jquery.flot.categories.js"></script>
+            <script src="/views/porto_assets/vendor/flot/jquery.flot.resize.js"></script>  
+            {{!-- <script src="/views/lib/valueLabels/jquery.flot.valuelabels.min.js"></script>           --}}
+            <script src="/views/js/dashboard.js"></script>
+            {{/section}}

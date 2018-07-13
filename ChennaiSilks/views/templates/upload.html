@@ -1,0 +1,55 @@
+<div class="product-info">
+    <span class="name">Image List</span>
+</div>
+<div class="page-link">
+    <span class="main-page" onclick="showProductGrid()">Image List</span> / 
+    <span class="sub-page"></span>
+</div>
+<div class="row">
+    <div class="col-lg-7 col-md-7">
+        <div class="img-preview">
+            <img src="" id="fullViewImage" />
+        </div>   
+        <div class="img-thumbnails" id="thumbnailView">
+            
+            <div class="add-photo-icon" onclick="goToAddImage()"></div>
+        </div>     
+    </div>
+    <div class="col-lg-5 col-md-5  product-details-wrap">
+        <h3 class="productHeading"></h3>
+        <h4 class="productId">Product Code: <span></span></h4>
+        <p  class="productPrice">Rs.<span></span></p>    
+        <div class="productProperties"></div>
+        <div class="reason-textarea-wrap">
+            <label for="reject-reason">Reason for Rejection</label>
+            <textarea id="reject-reason" rows="3" cols="50" placeholder="Rejection reason"></textarea>
+            <p class="field-error"></p>
+        </div>
+        <div class="control-btns-wrap supplier-btns">
+            <div class="control-btn green-btn" onclick="sendForApproval()">Send for Approval</div>    
+        </div>
+        <div class="control-btns-wrap designer-btns">
+            <div class="control-btn green-btn submit-btn" onclick="sendToReviewer()">Send for Approval</div>    
+            <div class="control-btn grey-btn reject-btn" onclick="rejectToSupplier()">Reject</div>    
+        </div>
+        <div class="control-btns-wrap reviewer-btns">
+            <div class="control-btn green-btn" onclick="approve()">Approve</div>
+            <div class="control-btn grey-btn" onclick="rejectToDesigner()">Reject</div>    
+        </div>
+    </div>
+</div>
+
+<div class="loading-icon"></div>
+<p class="error-msg"></p>
+<div id="modalCenter" class="modal-block mfp-hide">
+    <section class="panel">
+        <div class="panel-body">
+            <div class="modal-wrapper">
+                <div class="modal-text text-center">
+                    <p>Image uploaded to Cloud Successfully</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+            

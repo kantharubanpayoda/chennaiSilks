@@ -1,0 +1,49 @@
+{{#section 'style'}}
+    <link rel="stylesheet" type="text/css" href="/views/css/styles.css" />
+{{/section}}
+
+<section role="main" class="content-body">
+    <h3 class="page-title">QR Scanner</h3>
+    <div class="tabs">
+        <ul class="nav nav-tabs qr-scanner-tabs">
+            <li class="active qr-page-scan">
+                <a href="#scanPage" data-toggle="tab"><span class="tabIcons scan-tab">Scan</span></a>
+            </li>
+            <li class="qr-scanner-camera disabled-tabs">
+                <a href="#captureStream" data-toggle="tab"><span class="tabIcons camera-tab">Camera</span></a>
+            </li>
+            <li class="qr-scanner-upload disabled-tabs">
+                <a href="#upload" data-toggle="tab"><span class="tabIcons upload-tab">Send for approval</span></a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div id="scanPage" class="tab-pane active">
+            </div>
+            <div id="captureStream" class="tab-pane">
+            </div>
+            <div id="upload" class="tab-pane">
+            </div>
+        </div>
+    </div>
+    <!-- end: page -->
+</section>
+
+{{#section 'script'}}    
+    {{!-- <script src="/views/lib/easyrtc/socket.io.js"></script>
+    <script type="text/javascript" src="/views/lib/easyrtc/easyrtc.js"></script> --}}
+    <script type="text/javascript" src="/views/js/create_product.js"></script>
+    <script type="text/javascript" src="/views/lib/screenshot/capture-video-frame.js"></script>
+    <script type="text/javascript" src="/views/lib/qrCode/jquery.qrcode.min.js"></script>
+    {{!-- <script type="text/javascript" src="/views/lib/fileUpload/jquery.fileupload.js"></script> --}}
+    <script type="text/javascript" src="/views/js/scan.js"></script>
+    <script type="text/javascript" src="/views/js/capture_stream.js"></script>
+    <script type="text/javascript" src="/views/js/upload.js"></script>
+    {{!-- <script type="text/javascript" src="/views/js/video_streamer.js"></script>
+    <script type="text/javascript" src="/views/js/camera_streamer.js"></script> --}}    
+    
+
+    <script type="text/javascript" src="/views/porto_assets/vendor/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
+    <script type="text/javascript" src="/views/porto_assets/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>
+    <script type="text/javascript" src="/views/porto_assets/vendor/jquery-appear/jquery.appear.js"></script>
+    <script type="text/javascript" src="/views/porto_assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+{{/section}}

@@ -1,0 +1,219 @@
+/*
+    General CSS for easyrtc local landing site.
+    Only general layout is here.
+    Any CSS related directly to the operation of a demo is kept in another file.
+*/
+
+
+#container {
+    /* width:960px; */
+    margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+}
+#logo_easyrtc {
+    margin-top: 5px;
+    margin-left: 5px;
+}
+#logo_priologic {
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+/* #menu {
+    text-align: right;
+    clear: both;
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+.menu_item {
+    display: inline;
+    text-decoration: none;
+    border-color: gray;
+    border-width: 2px;
+    border-style: outset;
+    color: white;
+    padding: 0px 3px 0px 3px;
+    background-color: rgba(0,0,0,.4);
+}
+.menu_item:hover {
+    border-style:inset;
+    background-color: rgba(100,100,100,0);
+}
+.menu_link {
+    text-decoration:none;
+}
+.menu_link:focus {
+    text-decoration:underline;
+} */
+
+#main {
+    background-color: white;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#footer {
+    font-size: small;
+    padding: 5px;
+    color: white;
+    min-height: 60px;
+}
+#footer p {
+    margin: 0px;
+    color: white;
+    text-align: center;
+}
+#footer a {
+    color: white;
+}
+#license {
+    font-size: x-small;
+}
+#logo_priologic {
+    float: left;
+    padding-top: 10px;
+    margin-right: 10px;
+}
+#logo_pb_easyrtc {
+    float: right;
+    margin-left: 10px;
+}
+.demo_table {
+    border-collapse: collapse;
+    border: 1px solid gray;
+}
+.demo_table th {
+    padding: 3px;
+    text-align: left;
+}
+.demo_table td {
+    border-top: 1px solid gray;
+    padding: 3px;
+}
+.demo_table #browser_note {
+    text-align: center;
+    font-size: smaller;
+    color: gray;
+}
+hr {
+    clear: both;
+}
+.prettyprint {
+    white-space: pre-wrap;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+#demoContainer {
+    position: relative;
+}
+#connectControls {
+    float: left;
+    width: 250px;
+    text-align: center;
+    border: 2px solid black;
+}
+#otherClients {
+    height: 100px;
+    overflow-y: scroll;
+}
+#selfVideo {
+    /* height:225px;
+    width:300px; */
+    height: 500px;
+    width: 1000px;
+    float: left;
+    /* border:1px solid gray; */
+    margin-left: 10px;
+}
+#callerVideo {
+    /* height:225px;
+    width:300px; */
+    /* height:500px; */
+    /* width:1000px; */
+    /* border:1px solid gray; */
+    margin-left: 10px;
+}
+#acceptCallBox {
+    display: none;
+    z-index: 2;
+    position: absolute;
+    top: 100px;
+    left: 400px;
+    border: red solid 2px;
+    background-color: pink;
+    padding: 15px;
+}
+#panel1 {
+    width: 15%;
+    border-right: 3px solid #ddd;
+    height: 100%;
+    left: 0px;
+}
+#panel2 {
+    width: 70%;
+    border-right: 3px solid #ddd;
+    height: 100%;
+    left: 15%;
+}
+#panel3 {
+    width: 15%;
+    height: 100%;
+    left: 85%;
+}
+#updates {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#updates li {
+    padding: 5px 10px;
+}
+#updates li:nth-child(odd) {
+    background: #eee;
+}
+#previewImage{
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+}
+
+.adjustmentHeading{
+  font-size: 20px;
+padding: 10px 0 10px;
+text-align: right;
+}
+
+.uploadImage{
+    width: 450px;
+}
+.p-10{
+    padding: 10px 10px 10px 0px;
+}
+.uploadedImages{
+    padding: 10px 0px 10px 0px;
+}
+.pb-10{
+    padding-bottom: 10px;
+}
+.m-t-10{
+    margin-top: 10px;
+}
+.align-right{
+    text-align: right;
+}
+.m-w-100{
+    max-width: 100px;
+}
+
+/* FONT ICON STYLES */
+.demo-icon-hover {
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.demo-icon-hover:hover {
+    color: #111;
+}
+
+

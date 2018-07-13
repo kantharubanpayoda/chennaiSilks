@@ -1,0 +1,74 @@
+<section role="main" class="content-body">
+    <div class="row profile-edit-form">
+        <div class="col-md-6">
+            <form id="edit-profile-form" class="form-horizontal" method="get">
+                {{!-- <h4 class="mb-xlg">Personal Information</h4> --}}
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="username">Username</label>
+                        <div class="col-md-8">
+                            <span class="profile-detail data-username"></span>                            
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="name">Name</label>
+                        <div class="col-md-8">
+                            <span class="profile-detail data-name"></span>
+                            <input type="text" class="form-control" name="name" id="name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="photo">Photo</label>
+                        <div class="col-md-8">
+                            <img class="profile-detail data-image"/>
+                            <input type="file" class="form-control" id="photo">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="mailId">Mail</label>
+                        <div class="col-md-8">
+                            <span class="profile-detail data-mail"></span>
+                            <input type="text" class="form-control" id="mailId" name="mailid" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="password">Password</label>
+                        <div class="col-md-8">
+                            <span class="profile-detail data-password"></span>
+                            <div class="change-pw-link">
+                                <a onclick="changePassword()">Change Password?</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group change-pw-wrap">
+                        <label class="col-md-3 control-label" for="newPassword">New Password</label>
+                        <div class="col-md-8">
+                            <span class="profile-detail data-new-password"></span>
+                            <div class="change-pw-link">
+                                <input type="password" class="form-control" id="newPassword">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>   
+
+                <div class="row profile-edit-btns">                    
+                    <div class="col-sm-12 text-right">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-primary" onclick="cancelEditProfile()">Cancel</button>
+                    </div>
+                </div>     
+
+            </form>
+        </div>
+        <div class="col-md-6 edit" >
+            <a class="edit-profile-link" onclick="editProfile()">Edit Profile</a>
+            <a class="cancel-btn" onclick="cancelEditProfile()">X</a>
+        </div>
+    </div>
+</section>
+
+
+{{#section 'script'}}
+<script src="/views/porto_assets/vendor/jquery-validation/jquery.validate.js"></script>
+<script src="/views/js/profile.js"></script>
+{{/section}}

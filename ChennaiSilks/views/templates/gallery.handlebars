@@ -1,0 +1,92 @@
+{{#section 'style'}}
+    <link rel="stylesheet" href="/views/porto_assets/vendor/jquery-ui/css/jquery-ui-1.10.4.custom.css" />
+    <link rel="stylesheet" href="/views/porto_assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
+    <link rel="stylesheet" href="/views/porto_assets/vendor/morris/morris.css" />
+    <link rel="stylesheet" href="/views/porto_assets/vendor/select2/select2.css" />
+    <link rel="stylesheet" href="/views/porto_assets/vendor/isotope/jquery.isotope.css" />
+    <link rel="stylesheet" type="text/css" href="/views/css/styles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
+{{/section}}
+
+<section role="main" class="content-body gallery-wrap">
+    <div class="row ">
+        <div class="col-md-2">
+            <h3 class="page-title">Gallery</h3>
+        </div>
+        <div class="col-md-3 col-md-offset-7">
+            <span class="gallery-total"></span>
+        </div>
+    </div>
+    <div class="row">
+        {{!-- <div class="col-md-4">
+            <form class="form-horizontal form-bordered" action="#">
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <select data-plugin-selectTwo class="form-control populate">
+                                    <optgroup label="Alaskan/Hawaiian Time Zone">
+                                        <option value="AK">Alaska</option>
+                                        <option value="HI">Hawaii</option>
+                                    </optgroup>
+                                    
+                                </select>
+                            </div>
+                        </div>
+            </form>
+        </div> --}}
+        <div class="col-md-6 col-md-offset-6 gallery-action-btns">            
+            <p class="gallery-filter">Filter</p>
+            <p class="gallery-download" onclick="downloadImages()">Download</p>
+        </div>        
+    </div>
+    <div class="row gallery-images"  id="media_gallery_list">                    
+        
+    </div>
+    
+
+<div class="modal" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal">×</button>
+                <h3 class="modal-title"></h3>
+            </div>
+            <div class="modal-body">
+                <!--<div id="modalCarousel" class="carousel">
+                    <div class="carousel-inner"></div>
+                    <a class="carousel-control left" href="#modalCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                    <a class="carousel-control right" href="#modalCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                </div>-->
+<div id="myGallery" class="carousel slide" data-interval="false">
+    <div class="carousel-inner">
+        
+    </div>
+    <a class="left carousel-control" role="button" href="#myGallery" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span></a> 
+    <a class="right carousel-control" href="#myGallery" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span></a>
+</div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!--modal content-->
+    </div> <!--modal dialog-->
+</div>
+
+
+</section>
+
+{{#section 'script'}}
+<script src="/views/porto_assets/vendor/select2/select2.js"></script>
+<script src="/views/lib/handlebars/handlebars-v4.0.11.js"></script>
+
+<script src="/views/porto_assets/vendor/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
+<script src="/views/porto_assets/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>
+<script src="/views/porto_assets/vendor/jquery-appear/jquery.appear.js"></script>
+<script src="/views/porto_assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+
+<script src="/views/porto_assets/vendor/isotope/jquery.isotope.js"></script>
+
+<!--Jquery File Download -->
+<script src="/views/lib/downloadJs/download.js"></script>
+
+<script src="/views/js/gallery.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+{{/section}}

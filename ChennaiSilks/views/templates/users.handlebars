@@ -1,0 +1,133 @@
+{{#section 'style'}}
+    <link rel="stylesheet" type="text/css" href="/views/css/styles.css" />
+    <link rel="stylesheet" href="/views/porto_assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+    <link rel="stylesheet" href="/views/porto_assets/vendor/select2/select2.css" />
+    <link rel="stylesheet" href="/views/lib/dataTables/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="/views/lib/dataTables/select.dataTables.min.css" />
+{{/section}}
+<section role="main" class="content-body">
+    <h3 class="page-title userText">Users</h3>
+    <h5 class="addUser">Users / <span class="greyText userText"></span></h5>
+    <form id="addUserForm">
+    <section class="panel addUser addUserPanel">
+      <div class="row">
+        <div class="col-md-2 form-group">
+          <p>User Type</p>
+        </div>
+        <div class="col-md-2 form-group">
+          <select class="form-control input-sm mb-md textFieldBottomBordered roles" data-validation="required"
+		            data-validation-error-msg="Select a valid user type">
+            <option value=" ">Select</option>
+            <option value="Supplier">Supplier</option>
+            <option value="Designer">Designer</option>
+            <option value="Reviewer">Reviewer</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2 form-group">
+          <p>Name</p>
+          <p id="userId" class="display-none"></p>
+        </div>
+        <div class="col-md-2 form-group">
+          <input type="text" id="userName" placeholder="Enter Name" class="textFieldBottomBordered" data-validation="required"
+		            data-validation-error-msg="Enter a valid name">
+          <p class="category-field-error"></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2 form-group">
+          <p>Mail ID</p>
+        </div>
+        <div class="col-md-6 form-group">
+          <input type="text" id="userEmail" placeholder="Email ID" class="textFieldBottomBordered" data-validation="email" data-validation-error-msg="Enter a valid email">
+          <p class="category-field-error"></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2 form-group">
+          <p>Password</p>
+        </div>
+        <div class="col-md-6 form-group">
+          <input type="password" id="userPassword" placeholder="Password" class="textFieldBottomBordered" data-validation="required"
+		            data-validation-error-msg="Enter a valid password">
+          <p class="category-field-error"></p>
+        </div>
+      </div>
+      <div class="row mappedToView">
+        <div class="col-md-2 form-group">
+          <p>Mapped to <span class="mappedToText"></span></p>
+        </div>
+        <div class="col-md-2 form-group">
+          <select class="form-control input-sm mb-md textFieldBottomBordered mappedUser">
+            <option value=" ">Select</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2 col-md-offset-4 form-group">
+          <button type="submit" class="btn btn-default btn-block addUpdateCategoryButton" id="addUpdateUser"></button>
+        </div>
+        <div class="col-md-2 form-group">
+            <button type="button" class="btn btn-default btn-block cancelCategory" id="cancelUser">Cancel</button>
+        </div>
+      </div>
+ </section>
+</form>
+    <div class="row userList">
+
+      <div class="col-md-4 form-group">
+        <input type="text" id="userSearchText" placeholder="User name / User id" class="form-control">
+      </div>
+      <div class="col-md-4 form-group">
+          <button type="button" class="btn btn-default user-search" id="categorySearch">Search</button>
+      </div>
+      <div class="col-md-2 col-md-offset-2 form-group">
+        <button type="button" id="addnewuser" class="btn btn-default add-new-user">Add New User</button>
+      </div>
+   </div>
+  <!-- start: page -->
+    <section class="panel userList">
+      <header class="panel-heading">
+        <div class="panel-actions">
+          <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+          <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
+        </div>
+
+        <h2 class="panel-title">User List</h2>
+      </header>
+      <div class="panel-body">
+        <table class="table table-bordered table-striped mb-none" id="categories-datatables">
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Mail id</th>
+                    <th>User Type</th>
+                    <!--<th>Date Created</th>--> 
+                    <th>Actions</th>
+                </tr>
+            </thead>
+        </table>
+      </div>
+    </section>
+    <!-- end: page -->
+</section>
+{{#section 'script'}}
+<script src="/views/porto_assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="/views/porto_assets/vendor/flot/jquery.flot.js"></script>
+<script src="/views/porto_assets/vendor/flot-tooltip/jquery.flot.tooltip.js"></script>
+<script src="/views/porto_assets/vendor/flot/jquery.flot.pie.js"></script>
+<script src="/views/porto_assets/vendor/flot/jquery.flot.categories.js"></script>
+<script src="/views/porto_assets/vendor/flot/jquery.flot.resize.js"></script>
+{{!-- <script src="/views/lib/valueLabels/jquery.flot.valuelabels.min.js"></script>           --}}
+<script src="/views/porto_assets/vendor/select2/select2.js"></script>
+<!-- <script src="/views/porto_assets/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
+<script src="/views/porto_assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script> -->
+<script src="/views/lib/dataTables/jquery.dataTables.min.js"></script>
+<script src="/views/lib/dataTables/dataTables.select.min.js"></script>
+<script src="/views/lib/dataTables/examples.datatables.editable.js"></script>
+<script src="/views/lib/validator/jquery.form-validator.min.js"></script>
+<script src="/views/js/config.js"></script>
+<script src="/views/js/users.js"></script>
+{{/section}}

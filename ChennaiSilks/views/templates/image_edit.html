@@ -1,0 +1,188 @@
+<div class="product-info">
+    <span class="name"></span>
+    <span class="id"></span>
+</div>
+<div class="page-link">
+    <span class="main-page" onclick="goToImageList()">Image List</span> / 
+    <span class="sub-page"></span>
+</div>
+<div class="tabs">
+    <ul class="nav nav-tabs product-edit-tabs">
+        <li class="active product-image-edit">
+            <a href="#editPage" data-toggle="tab"><span class="tabIcons edit-tab">Image Edit</span></a>
+        </li>
+        <li class="product-image-down disabled-tabs">
+            <a href="#downloadPage" data-toggle="tab"><span class="tabIcons download-tab">Download</span></a>
+        </li>
+        <li class="product-image-upload disabled-tabs">
+            <a href="#uploadPage" data-toggle="tab"><span class="tabIcons img-upload-tab">Upload</span></a>
+        </li>
+        <li class="product-approve disabled-tabs">
+            <a href="#approvalPage" data-toggle="tab"><span class="tabIcons upload-tab">Send for approval</span></a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div id="editPage" class="tab-pane active">
+                <div class="row">                  
+                        <div class="col-md-10 col-lg-10">
+                            <div class="edit-preview-wrap">
+                                <canvas class="img-edit-preview" src="" id="targetEditorImage"></canvas>
+                                <div class="edit-options-wrap">
+                                    <a class="img-zoom" title="Zoom" onclick="zoomIn()"></a>
+                                    <a class="img-crop" title="Crop" onclick="cropImage()"></a>
+                                    <a class="img-rotate" title="Rotate" onclick="rotateRight()"></a>
+                                </div>  
+                            </div>       
+                        </div>
+                        <div class="col-md-2 col-lg-2"> 
+                            <div class="nano img-edit-thumbs">
+                                <div class="nano-content" id="imageEditContainer"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row custom-edit-wrap">
+                        <div class="col-md-10">
+                            <div class="col-md-3">
+                                <label for="bright">Brightness</label>
+                                <input id="bright" name="bright" type="range" min="-50" max="50" value="0">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="contrast">Contrast</label>
+                                <input id="contrast" name="contrast" type="range" min="-50" max="50" value="0">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="exposure">Exposure</label>
+                                <input id="exposure" name="exposure" type="range" min="-100" max="100" value="0">
+                            </div>                            
+                            <div class="col-md-3">
+                                <label for="vibrance">Vibrance</label>
+                                <input id="vibrance" name="vibrance" type="range" min="-100" max="100" value="0">
+                            </div> 
+                        </div>
+                        <div class="col-md-10">                            
+                            <div class="col-md-3">
+                                <label for="hue">Hue</label>
+                                <input id="hue" name="hue" type="range" min="0" max="100" value="0">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="saturation">Saturation</label>
+                                <input id="saturation" name="saturation" type="range" min="-100" max="100" value="0">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="gamma">Gamma</label>
+                                <input id="gamma" name="gamma" type="range" min="1" max="10" value="1">
+                            </div>                          
+                            <div class="col-md-3">
+                                <label for="sepia">Sepia</label>
+                                <input id="sepia" name="sepia" type="range" min="0" max="100" value="0">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="row">
+                            <div class="col-md-10">
+                                <div class="action-btns-wrap qr-scanner-btns row">
+                                    <div class="col-md-4">
+                                        <a class="action-btn edit-save-btn disabled-btn" onclick="saveImage()"></a>
+                                        <p>Save</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a class="action-btn edit-delete-btn disabled-btn" onclick="deleteImage()"></a>
+                                        <p>Delete</p>
+                                    </div>                                    
+                                    <div class="col-md-4">
+                                        <a class="action-btn cancel-btn disabled-btn"  onclick="removeEditReference()">
+                                        </a>
+                                        <p>Clear</p>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="control-btns-wrap">
+                            <div class="control-btn yellow-btn to-download-tab-btn" onclick="goToTab('downloadPage')">Continue</div>    
+                    </div>
+        </div>
+        <div id="downloadPage" class="tab-pane">
+            <div class="row download-images-wrap edit-image-gallery">
+                
+            </div>
+            <div class="action-btns-wrap qr-scanner-btns row">                
+                <div class="col-md-2  col-md-offset-4">
+                    <a class="action-btn edit-delete-btn disabled-btn" onclick="deleteDownloadedImage('download')"></a>
+                    <p>Delete</p>
+                </div>
+                <div class="col-md-2">
+                    <a class="action-btn edit-download-btn disabled-btn" onclick="downloadImages()"></a>
+                    <p>Download</p>
+                </div>
+            </div>
+            <p class="error-msg"></p>
+            <div class="loading-icon"></div>
+            <div class="control-btns-wrap">
+                    <div class="control-btn yellow-btn to-upload-tab-btn" onclick="goToTab('uploadPage')">Continue</div>    
+            </div>
+        </div>
+        <div id="uploadPage" class="tab-pane">
+            <div class="row upload-images-wrap edit-image-gallery">
+        
+            </div>
+            <div class="action-btns-wrap qr-scanner-btns row">                
+                <div class="col-md-2  col-md-offset-4">
+                    <a class="action-btn edit-delete-btn disabled-btn" onclick="deleteDownloadedImage('upload')"></a>
+                    <p>Delete</p>
+                </div>
+                <div class="col-md-2">
+                    <a class="action-btn upload-btn">
+                        <label for="file-select-btn" class="file-upload-label"></label>
+                        <input type="file" id="file-select-btn" class="file-upload-btn">
+                    </a>
+                    <p>Upload</p>
+                </div>
+            </div>
+            <p class="error-msg"></p>
+            <div class="control-btns-wrap">
+                    <div class="control-btn yellow-btn to-approval-tab-btn" onclick="goToTab('approvalPage')">Continue</div>    
+            </div>
+        </div>
+        <div id="approvalPage" class="tab-pane">
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- <div class="row">
+    <div class="col-lg-3">
+        <label for="bright">Brightness</label>
+        <input id="bright" name="bright" type="range" min="1" max="20" value="5">
+        <label for="contrast">Contrast</label>
+        <input id="contrast" name="contrast" type="range" min="-10" max="20" value="4">
+    </div>
+    <div class="col-lg-3">
+        <label for="gamma">gamma</label>
+        <input id="gamma" name="gamma" type="range" min="1" max="10" value="1">
+        <label for="saturation">saturation</label>
+        <input id="saturation" name="saturation" type="range" min="1" max="100" value="1">
+    </div>
+
+</div> -->
+<!-- <div class="row">
+    <div class="col-md-8">
+        
+
+    </div>
+    <div class="col-md-4" id="imageEditContainer">
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3" id="previewImage"></div>
+    <div class="col-md-3" id="cropped_result"></div>
+</div> -->
+            

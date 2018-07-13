@@ -1,0 +1,17 @@
+/* Add here all your CSS customizations */
+.sidebar-left{
+  width: 200px !important;
+}
+@media only screen and (min-width: 768px) {
+html.fixed .content-body {
+    margin-left: 200px !important;
+}
+
+html.fixed .inner-wrapper{
+  padding-top: 60px;
+}
+}
+
+.tabIcons{
+  padding-right: 5px !important;
+}

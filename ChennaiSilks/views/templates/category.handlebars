@@ -1,0 +1,97 @@
+{{#section 'style'}}
+    <link rel="stylesheet" type="text/css" href="/views/css/styles.css" />
+    <link rel="stylesheet" href="/views/lib/dataTables/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="/views/lib/dataTables/select.dataTables.min.css" />
+{{/section}}
+<section role="main" class="content-body category-wrap">
+    <h3 class="page-title">Category</h3>
+    <h5 class="addCategory">Category / <span class="greyText categoryText"></span></h5>
+    <section class="panel addCategory addCategoryPanel">
+      <div class="row">
+        <div class="col-md-2 form-group">
+          <p>Category ID</p>
+        </div>
+        <div class="col-md-6 form-group">
+          <p id="categoryId"></p>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 form-group">
+        <p>Category Name</p>
+      </div>
+      <div class="col-md-6 form-group">
+        <input type="text" id="categoryName" placeholder="Category name / id" class="textFieldBottomBordered">
+        <p class="category-field-error"></p>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-2 form-group">
+        <p>Approval Needed</p>
+      </div>
+      <div class="col-md-6 form-group">
+        <label class="switch">
+          <input type="checkbox" checked id="approvalNeeded">
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-4 form-group">
+        <button type="button" class="btn btn-default btn-block addUpdateCategoryButton" id="addUpdateCategory"></button>
+      </div>
+      <div class="col-md-2 form-group">
+          <button type="button" class="btn btn-default btn-block cancelCategory" id="cancelCategory">Cancel</button>
+      </div>
+    </div>
+ </section>
+    <div class="row categoryList">
+
+      <div class="col-md-4 form-group">
+        <input type="text" id="categorySearchText" placeholder="Category name / id" class="form-control">
+      </div>
+      <div class="col-md-4 form-group">
+          <button type="button" class="btn btn-default category-search" id="categorySearch">Search</button>
+      </div>
+      <div class="col-md-2 col-md-offset-2 form-group">
+        <button type="button" id="addnewcategory" class="btn btn-default add-new-category">Add New Category</button>
+      </div>
+
+   </div>
+  <!-- start: page -->
+    <section class="panel categoryList">
+      <header class="panel-heading">
+        <div class="panel-actions">
+          <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+          <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
+        </div>
+
+        <h2 class="panel-title">Category List</h2>
+      </header>
+      <div class="panel-body">
+        <!-- <div class="row">
+          <div class="col-sm-6">
+            <div class="mb-md">
+              <button id="addToTable" class="btn btn-primary">Add <i class="fa fa-plus"></i></button>
+            </div>
+          </div>
+        </div> -->
+        <table class="table table-bordered table-striped mb-none" id="categories-datatables">
+            <thead>
+                <tr>
+                    <th>Category ID</th>
+                    <th>Name</th>
+                    <th>Approval Needed</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+        </table>
+      </div>
+    </section>
+    <!-- end: page -->
+</section>
+{{#section 'script'}}
+<script src="/views/lib/dataTables/jquery.dataTables.min.js"></script>
+<script src="/views/lib/dataTables/dataTables.select.min.js"></script>
+<script src="/views/js/categories.js"></script>
+{{/section}}
